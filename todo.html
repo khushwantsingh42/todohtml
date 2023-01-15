@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="todo.css">
+
+</head>
+
+<body>
+    <div id="app" class="container my-4">
+        <h1> to do list</h1>
+
+        <input type- "text" id="title" placeholder="new task">
+        <button type="submit" id="add" class="btn_add">add</button>
+
+
+
+        <p>Description:</p>
+
+        <textarea class="add" id="description" rows="3" cols="100"></textarea></form>
+        <div id="item" class="my-4">
+            <h2>your item</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Sno</th>
+                        <th scope="col">item</th>
+                        <th scope="col">des</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>sleep</td>
+                        <td>eat</td>
+                        <td><button class="btn">delete</button></td>
+                    </tr>
+
+                    <tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</body>
+<!--<script type="text/javascript" src=" todo.js "></script>-->
+<script>
+    add = document.getElementById("add");
+    add.addEventListener("click", () => {
+                console.log("are khushu");
+                tit = document.getElementById("title").value;
+                desc = document.getElementById("description").value;
+                if (localStorage.getItem('itemsJson') == null {
+                        itemJsonArray = [];
+                        itemJsonArray.push([tit, desc]);
+                        localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+                    } else {
+                        itemJsonArrayStr = localstorage.getItem('itemsJson')
+                        itemJsonArray = JSON.parse(itemJsonArrayStr);
+                        itemJsonArray.push([tit, desc]);
+                        localStorage.setItem('itemsjson', JSON.stringify(itemJonArray))
+                    }
+                    tablebody = document.getElementById("tablebody");
+                    let str = ""; itemJsonArray.forEach((element, index) => {
+                        str +=
+                            <
+                            tr >
+                            <
+                            th scope = "row" > $ {
+                                index + 1
+                            } < /th> <
+                        td > $ {
+                            element[0]
+                        } < /td> <
+                        td > $ {
+                            element[1]
+                        } < /td> <
+                        td > < button class = "btn" > delete < /button></td >
+
+                            <
+                            /tr>;
+                    }); tablebody.innerHTML = str;
+                });
+</script>
+
+</html>
